@@ -36,12 +36,13 @@
             <th>TTL</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($mahasiswas as $Mahasiswa)
+
+        @foreach ($paginate as $Mahasiswa)
             <tr>
 
                 <td>{{ $Mahasiswa->Nim }}</td>
                 <td>{{ $Mahasiswa->Nama }}</td>
-                <td>{{ $Mahasiswa->Kelas }}</td>
+                <td>{{ $Mahasiswa->Kelas->nama_kelas }}</td>
                 <td>{{ $Mahasiswa->Jurusan }}</td>
                 <td>{{ $Mahasiswa->No_Handphone }}</td>
                 <td>{{ $Mahasiswa->Email }}</td>
@@ -62,5 +63,6 @@
         @endforeach
     </table>
 
-    {{ $mahasiswas->links() }}
+    {{-- {{ $m->links() }} --}}
+    {{$paginate->links('pagination::bootstrap-4')}}
 @endsection
